@@ -4,6 +4,7 @@ const cors = require("cors")
 const helmet = require("helmet")
 const NODE_ENV = process.env.NODE_ENV
 const app: Express = express()
+const testRouter = require("./routers/testRouter")
 
 const morganOption = (NODE_ENV === "production")
   ? "tiny"
@@ -16,6 +17,8 @@ app.use(helmet())
 app.get("/", (req: Request, res: Response) => {
   res.send("lenzer")
 })
+
+app.use("/api/test", testRouter)
 
 app.use(function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
   if (res.headersSent) {
