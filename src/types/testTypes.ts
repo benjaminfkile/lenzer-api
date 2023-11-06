@@ -1,4 +1,4 @@
 type testTypes = {
-    lattitude: number
+    latitude : number
     longitude: number
 }
